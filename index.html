@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="theme-color" content="#0a0e1a">
+  <meta name="description" content="Risk Calculator — position size calculator for Forex & CFD trading">
+  <title>Risk Calculator</title>
+  <link rel="manifest" href="./manifest.json">
+  <link rel="icon" href="./icons/icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="./icons/icon-192.png">
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <div class="bg-orbs">
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+  </div>
+
+  <div class="app">
+    <header class="app-header">
+      <div class="logo">
+        <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+          <path d="M4 20L10 12L14 16L24 6" stroke="url(#g1)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M18 6H24V12" stroke="url(#g1)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <defs>
+            <linearGradient id="g1" x1="4" y1="6" x2="24" y2="20">
+              <stop stop-color="#6366f1"/>
+              <stop offset="1" stop-color="#06b6d4"/>
+            </linearGradient>
+          </defs>
+        </svg>
+      </div>
+      <h1>Risk Calculator</h1>
+    </header>
+
+    <main>
+      <section class="card inputs">
+        <div class="field-group">
+          <label for="capital">Capital</label>
+          <div class="input-wrap">
+            <span class="prefix">$</span>
+            <input id="capital" type="number" inputmode="decimal" autocomplete="off" value="10000" placeholder="0.00" min="0" step="any">
+          </div>
+        </div>
+
+        <div class="field-group">
+          <label for="riskPercent">Risk %</label>
+          <div class="input-wrap">
+            <input id="riskPercent" type="number" inputmode="decimal" autocomplete="off" value="1" placeholder="0" min="0" step="any">
+            <span class="suffix">%</span>
+          </div>
+        </div>
+
+        <div class="field-group">
+          <label for="stopPips">Stop Loss</label>
+          <div class="input-wrap">
+            <input id="stopPips" type="number" inputmode="decimal" autocomplete="off" value="6" placeholder="0" min="0" step="any">
+            <span class="suffix">pips</span>
+          </div>
+        </div>
+
+        <div class="field-group">
+          <label for="lotPipValue">Pip Value / Lot</label>
+          <div class="input-wrap">
+            <span class="prefix">$</span>
+            <input id="lotPipValue" type="number" inputmode="decimal" autocomplete="off" value="10" placeholder="0.00" min="0" step="any">
+          </div>
+        </div>
+      </section>
+
+      <section class="results">
+        <div class="result-card" id="cardRisk">
+          <div class="result-glow"></div>
+          <div class="result-content">
+            <span class="result-label">Risk Amount</span>
+            <span class="result-value" id="outRisk">$0.00</span>
+          </div>
+          <div class="result-icon">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+              <path d="M10 2L2 17H18L10 2Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
+              <path d="M10 8V11" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+              <circle cx="10" cy="13.5" r="0.5" fill="currentColor"/>
+            </svg>
+          </div>
+        </div>
+
+        <div class="result-card" id="cardPip">
+          <div class="result-glow"></div>
+          <div class="result-content">
+            <span class="result-label">Pip Value</span>
+            <span class="result-value" id="outPip">$0.00</span>
+          </div>
+          <div class="result-icon">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+              <rect x="2" y="6" width="16" height="8" rx="1" stroke="currentColor" stroke-width="1.5"/>
+              <path d="M6 6V4M10 6V4M14 6V4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+            </svg>
+          </div>
+        </div>
+
+        <div class="result-card" id="cardLot">
+          <div class="result-glow"></div>
+          <div class="result-content">
+            <span class="result-label">Lot Size</span>
+            <span class="result-value" id="outLot">0.00</span>
+          </div>
+          <div class="result-icon">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+              <path d="M10 2V18M2 10H18" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+              <circle cx="10" cy="10" r="7" stroke="currentColor" stroke-width="1.5"/>
+            </svg>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="app-footer">
+      <span>Offline · Installable</span>
+    </footer>
+  </div>
+
+  <script src="./calculator.js"></script>
+  <script src="./app.js"></script>
+</body>
+</html>
